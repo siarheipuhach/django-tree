@@ -1,0 +1,9 @@
+<ul>
+    {% for menu in menus %}
+        <h2>{{ menu.name }}</h2>
+        {% for element in menu.root_folders.all %}
+            {%include "menu/tree_element.html"%}
+        {% endfor %}
+    {% endfor %}
+</ul>
+

@@ -1,0 +1,11 @@
+<li> <a href={{ element.url }}>{{element.name}}</a>
+    {%if element.children.all %}
+        <ul>
+         {%for ch in element.children.all %}
+              {%with element=ch template_name="menu/tree_element.html" %}
+                   {%include template_name%}
+              {%endwith%}
+         {%endfor%}
+         </ul>
+    {%endif%}
+</li>
