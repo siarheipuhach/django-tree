@@ -6,7 +6,7 @@ from tree_element.models import TreeElement
 class Menu(models.Model):
 
     name = models.CharField(max_length=30)
-    root_folders = models.ManyToManyField(TreeElement)
+    root_folders = models.ManyToManyField(TreeElement, related_name='menu',  related_query_name="menu")
 
     def __str__(self):
         return self.name

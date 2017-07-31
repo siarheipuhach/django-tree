@@ -14,7 +14,7 @@ SECRET_KEY = 'i%_l)(8g2%^4h7zg^ixcn-r8n^wu9op33s0nke1^9w*_v$38v('
 DEBUG = True
 
 ALLOWED_HOSTS = ['0.0.0.0', ]
- 
+
 
 # Application definition
 
@@ -27,11 +27,13 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'tree_element',
     'menu',
+    'debug_toolbar',
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'debug_toolbar.middleware.DebugToolbarMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -103,8 +105,10 @@ USE_L10N = True
 
 USE_TZ = True
 
-
+INTERNAL_IPS = ['127.0.0.1', ]
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
 STATIC_URL = '/static/'
+
+STATIC_ROOT = BASE_DIR + 'static/'

@@ -1,9 +1,20 @@
 <ul>
-    {% for menu in menus %}
-        <h2>{{ menu.name }}</h2>
-        {% for element in menu.root_folders.all %}
-            {%include "menu/tree_element.html"%}
-        {% endfor %}
+    {% for root in roots %}
+        <li> <a href={{ root.url }}>{{root.name}}</a>
+            <ul>
+                {% for key, value in data %}
+                    {% if key == root.name %}
+                        {% for i in value %}
+                            {% for k, v in i.items %}
+                                {% if k == 'name' %}
+                                    {%include "menu/tree_element.html"%}
+                                {% endif %}
+                            {% endfor %}
+                        {% endfor %}
+                    {% endif %}
+                {% endfor %}
+            </ul>
+        </li>
     {% endfor %}
 </ul>
 

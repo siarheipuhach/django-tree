@@ -21,8 +21,8 @@ class MenuDetailView(TemplateView):
         try:
             url = '/{}/'.format(url)
             element = TreeElement.objects.get(url=url)
-            return render_to_response('menu/tree_element.html', context={
+            return render_to_response('menu/single_element.html', context={
                 'element': element,
             })
         except ObjectDoesNotExist:
-            return render_to_response('menu/tree_element.html', context={})
+            return render_to_response('menu/notfound.html', context={})
